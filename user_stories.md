@@ -13,5 +13,8 @@ I want each set of pictures to be composed of images that were not used in the p
 I want each set of images to be three separate images
 
 ## As a Developer
-I want to provide my client with information regarding how many times each picture was clicked on
-I 
+I want to provide my client with information regarding how many times each picture was clicked on.
+I want to build an app that will display 3 different pictures to the user.
+I want the user to be able to click whichever image they prefer, and then 3 new different images appear, for them to click again.
+I want to store the data of which pictures they are clicking, and how many times.
+I want, after 25 clicks, to show the user how many times they clicked on each picture. 
