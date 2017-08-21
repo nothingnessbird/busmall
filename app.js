@@ -27,5 +27,22 @@ function randomizer(){
 
 var imgArray = ['product1','product2','product3'];
 
-var product1 = document.getElementById('product1');
-product1.setAttribute('src','img/bag.jpg');
+var productShower = function () {
+  var currentImageArray = [];
+  for (var i = 0; i < imgArray.length; i++) {
+    var currentProduct = randomizer();
+    if (!currentImageArray.includes(currentProduct)) {
+      currentImageArray.push(currentProduct);
+      var displayImage = document.getElementById(imgArray[i]);
+      displayImage.setAttribute('src','img/' + productArray[currentProduct].fileLink);
+    } else {
+      i--;
+    }
+  }
+};
+
+// productShower();
+
+var products = document.getElementById('products');
+
+products.addEventListener('click',productShower);
