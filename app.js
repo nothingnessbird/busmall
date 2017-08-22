@@ -88,6 +88,9 @@ for (var i = 0; i < productImg.length; i++) {
 //     list.appendChild(listItem);
 //   }
 // };
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+
 var clickedDataArray = [];
 var shownDataArray = [];
 var nameArray = [];
@@ -111,25 +114,25 @@ var chartConfig = {
       label: '# of Votes', // <-- the label of this one data set
       data: clickedDataArray, // <-- where your data actually goes. just the numbers
       backgroundColor: [ // <-- this can be either one single color or a color for each item in your bar chart.
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(20, 109, 164, 0.2)',
-        'rgba(55, 59, 254, 0.2)',
-        'rgba(205, 180, 94, 0.2)',
-        'rgba(150, 255, 64, 0.2)',
-        'rgba(205, 109, 204, 0.2)',
-        'rgba(30, 200, 164, 0.2)',
-        'rgba(228, 15, 294, 0.2)',
-        'rgba(255, 30, 64, 0.2)',
-        'rgba(255, 200, 24, 0.2)',
-        'rgba(130, 250, 114, 0.2)',
-        'rgba(90, 255, 150, 0.2)',
-        'rgba(100, 25, 255, 0.2)',
-        'rgba(160, 160, 204, 0.2)',
-        'rgba(25, 197, 164, 0.2)'
+        'rgba(255, 99, 132, 0.4)',
+        'rgba(54, 162, 235, 0.4)',
+        'rgba(255, 206, 86, 0.4)',
+        'rgba(75, 192, 192, 0.4)',
+        'rgba(153, 102, 255, 0.4)',
+        'rgba(20, 109, 164, 0.4)',
+        'rgba(55, 59, 254, 0.4)',
+        'rgba(205, 180, 94, 0.4)',
+        'rgba(150, 255, 64, 0.4)',
+        'rgba(205, 109, 204, 0.4)',
+        'rgba(30, 200, 164, 0.4)',
+        'rgba(228, 15, 294, 0.4)',
+        'rgba(255, 30, 64, 0.4)',
+        'rgba(255, 200, 24, 0.4)',
+        'rgba(130, 250, 114, 0.4)',
+        'rgba(90, 255, 150, 0.4)',
+        'rgba(100, 25, 255, 0.4)',
+        'rgba(160, 160, 204, 0.4)',
+        'rgba(25, 197, 164, 0.4)'
       ],
       borderColor: [
         'rgba(255, 99, 132, 1)',
@@ -152,17 +155,17 @@ var chartConfig = {
         'rgba(160, 160, 204, 1)',
         'rgba(25, 197, 164, 1)'
       ],
-      borderWidth: 5 // border width in pixels
+      borderWidth: 1 // border width in pixels
     }]
   },
   options: {
-    // maintainAspectRatio: false,
-    // animation: {
-    //   duration: 1000
-    // },
+    maintainAspectRatio: true,
+    animation: {
+      duration: 1000
+    },
     title: {
       display: true,
-      text: 'Some stuff and some junk'
+      text: 'Your Favorite Products'
     },
     scales: {
       yAxes: [{
