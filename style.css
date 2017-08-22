@@ -3,7 +3,7 @@
 }
 .products, img{
   display: inline;
-  width: 200px;
+  height: 200px;
 }
 #products {
   text-align: center;
