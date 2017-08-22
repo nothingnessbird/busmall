@@ -6,15 +6,12 @@
   width: 200px;
 }
 .products {
-  text-align: center;
   margin: auto;
 }
 .buttonDiv {
-  text-align: center;
   margin: auto;
 }
 .chartDiv {
-  text-align: center;
   margin: auto;
 }
 .products, img:hover {
