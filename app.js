@@ -46,8 +46,11 @@ var productShower = function () {
 
 var clicks = 0;
 
+startText = document.getElementById('start-text');
+
 var startButton = function () {
   button.style.visibility = 'hidden';
+  startText.style.display = 'inline';
   productShower();
 };
 
@@ -70,7 +73,6 @@ var incrementProductsShowImgs = function (event) {
     products.style.display = 'none';
     chartData();
     var myChart = new Chart(ctx, chartConfig);
-    // displayList();
   }
 };
 

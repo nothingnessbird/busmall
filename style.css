@@ -1,4 +1,19 @@
+* {
+  box-sizing: border-box;
+}
 .products, img{
   display: inline;
   width: 200px;
+}
+.products {
+  text-align: center;
+  margin: auto;
+}
+.buttonDiv {
+  text-align: center;
+  margin: auto;
+}
+.chartDiv {
+  text-align: center;
+  margin: auto;
 }
