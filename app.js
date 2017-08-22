@@ -68,6 +68,8 @@ var incrementProductsShowImgs = function (event) {
   } else {
     var products = document.getElementById('products');
     products.style.display = 'none';
+    chartData();
+    var myChart = new Chart(ctx, chartConfig);
     // displayList();
   }
 };
@@ -102,8 +104,6 @@ var chartData = function () {
     nameArray.push(productArray[i].name);
   }
 };
-
-clickedAndShownData();
 
 var chartConfig = {
   type: 'horizontalBar',
@@ -176,5 +176,3 @@ var chartConfig = {
     }
   }
 };
-
-var myChart = new Chart(ctx, chartConfig);
