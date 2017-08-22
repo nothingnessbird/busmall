@@ -82,14 +82,6 @@ for (var i = 0; i < productImg.length; i++) {
   productImg[i].addEventListener('click',incrementProductsShowImgs);
 }
 
-// var displayList = function () {
-//   for (var i = 0; i < productArray.length; i++) {
-//     var list = document.getElementById('list');
-//     var listItem = document.createElement('li');
-//     listItem.innerHTML = productArray[i].clickCounter + ' votes for the ' + productArray[i].name;
-//     list.appendChild(listItem);
-//   }
-// };
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
@@ -109,11 +101,10 @@ var chartConfig = {
   type: 'horizontalBar',
   data: {
     labels: nameArray,
-    datasets: [{ // <-- notice that this can be an array of multiple data sets.
-      // each data set is its own object literal.
-      label: '# of Votes', // <-- the label of this one data set
-      data: clickedDataArray, // <-- where your data actually goes. just the numbers
-      backgroundColor: [ // <-- this can be either one single color or a color for each item in your bar chart.
+    datasets: [{
+      label: '# of Votes',
+      data: clickedDataArray,
+      backgroundColor: [
         'rgba(255, 99, 132, 0.4)',
         'rgba(54, 162, 235, 0.4)',
         'rgba(255, 206, 86, 0.4)',
@@ -157,13 +148,12 @@ var chartConfig = {
         'rgba(25, 197, 104, 1)',
         'rgba(240, 100, 75, 1)'
       ],
-      borderWidth: 1 // border width in pixels
+      borderWidth: 1
     },
-    { // <-- notice that this can be an array of multiple data sets.
-      // each data set is its own object literal.
-      label: '# of Times Shown', // <-- the label of this one data set
-      data: shownDataArray, // <-- where your data actually goes. just the numbers
-      backgroundColor: [ // <-- this can be either one single color or a color for each item in your bar chart.
+    {
+      label: '# of Times Shown',
+      data: shownDataArray,
+      backgroundColor: [
         'rgba(255, 99, 132, 0.1)',
         'rgba(54, 162, 235, 0.1)',
         'rgba(255, 206, 86, 0.1)',
@@ -207,7 +197,7 @@ var chartConfig = {
         'rgba(25, 197, 104, 0.3)',
         'rgba(240, 100, 75, 0.3)'
       ],
-      borderWidth: 1 // border width in pixels
+      borderWidth: 1
     }]
   },
   options: {
