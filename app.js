@@ -55,22 +55,26 @@ var startButton = function () {
   productShower();
 };
 
+var remainingClicks = document.getElementById('remainingClicks');
+
 var incrementProductsShowImgs = function (event) {
   if (clicks < 24) {
     if (event.target.id === 'product1') {
       var index = lastImageArray[0];
       productArray[index].clickCounter++;
+      remainingClicks.innerHTML = 'You have ' + (24 - clicks) + ' votes remaining.';
     } else if (event.target.id === 'product2') {
       var index = lastImageArray[1];
+      remainingClicks.innerHTML = 'You have ' + (24 - clicks) + ' votes remaining.';
       productArray[index].clickCounter++;
     } else {
       var index = lastImageArray[2];
+      remainingClicks.innerHTML = 'You have ' + (24 - clicks) + ' votes remaining.';
       productArray[index].clickCounter++;
     }
     clicks++;
     productShower();
   } else {
-    var products = document.getElementById('products');
     products.style.display = 'none';
     chartData();
     var myChart = new Chart(ctx, chartConfig);

@@ -17,3 +17,9 @@
   text-align: center;
   margin: auto;
 }
+.products, img:hover {
+  border: 2px solid green;
+}
+.products, img:active {
+  border: 5px solid teal;
+}
