@@ -46,11 +46,12 @@ var productShower = function () {
 
 var clicks = 0;
 
-startText = document.getElementById('start-text');
+var products = document.getElementById('products');
+var buttonDiv = document.getElementById('buttonDiv');
 
 var startButton = function () {
-  button.style.visibility = 'hidden';
-  startText.style.display = 'inline';
+  buttonDiv.style.display = 'none';
+  products.style.display = 'block';
   productShower();
 };
 
