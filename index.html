@@ -4,15 +4,25 @@
     <meta charset="utf-8">
     <title>Busmall Market Research</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
   </head>
   <body>
-    <button id="start-button" type="button" name="button">Click Here to Start!</button>
-    <div id="products">
+    <div id="buttonDiv">
+      <h2>Directions:</h2>
+      <p>You will be shown sets of three products. Click on whichever product you like best, or would be most likely to buy, to vote for that product. When you have voted for a product, three new products will appear. When you have voted for 25 products, you will be shown a graph displaying how many times you were shown each product, and how many times you voted for each one.</p>
+      <p id="start-text">When you are ready to begin, click the button!</p>
+      <button id="start-button" type="button" name="button">Click Here to Start!</button>
+    </div>
+    <div id="products" style="display:none">
+      <h2>Click on the product you like best!</h2>
       <img class="productImg" id="product1" />
       <img class="productImg" id="product2" />
       <img class="productImg" id="product3" />
+      <h3 id="remainingClicks"></h3>
     </div>
-    <ul id="list"></ul>
+    <div id="chartDiv">
+      <canvas id="canvas" width="500" height="300"></canvas>
+    </div>
     <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
