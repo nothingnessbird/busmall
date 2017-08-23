@@ -90,7 +90,7 @@ var showUntil25ThenGraphAndImages = function (event) {
     productShower();
   } else {
     products.style.display = 'none';
-    chartData();
+    addLocal();
     var myChart = new Chart(ctx, chartConfig);
     imageLister();
   }
@@ -122,6 +122,8 @@ var chartData = function () {
 var sendToLocal = function () {
   localStorage.clickData = JSON.stringify(clickTotalArray);
   localStorage.shownData = JSON.stringify(shownTotalArray);
+  console.log(clickTotalArray);
+  console.log(shownTotalArray);
 };
 
 var localClickData = [];
@@ -135,6 +137,7 @@ var getFromLocal = function () {
     localShownData = JSON.parse(shownData);
   }
 };
+// getFromLocal();
 
 var clickTotalArray = [];
 var shownTotalArray = [];
@@ -142,14 +145,16 @@ var shownTotalArray = [];
 var addLocal = function () {
   if (localStorage.clickData && localStorage.shownData) {
     chartData();
-    for (var i = 0; i < clickTotalArray.length; i++) {
+    for (var i = 0; i < clickedDataArray.length; i++) {
       clickTotalArray.push(clickedDataArray[i] + localClickData[i]);
       shownTotalArray.push(shownDataArray[i] + localShownData[i]);
     }
+    sendToLocal();
   } else {
     chartData();
     clickTotalArray = clickedDataArray;
     shownTotalArray = shownDataArray;
+    sendToLocal();
   }
 };
 
@@ -159,7 +164,7 @@ var chartConfig = {
     labels: nameArray,
     datasets: [{
       label: '# of Votes',
-      data: clickedDataArray,
+      data: clickTotalArray,
       backgroundColor: [
         'rgba(255, 99, 132, 0.4)',
         'rgba(54, 162, 235, 0.4)',
@@ -208,7 +213,7 @@ var chartConfig = {
     },
     {
       label: '# of Times Shown',
-      data: shownDataArray,
+      data: shownTotalArray,
       backgroundColor: [
         'rgba(255, 99, 132, 0.1)',
         'rgba(54, 162, 235, 0.1)',
