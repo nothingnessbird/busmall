@@ -71,7 +71,7 @@ var imageLister = function () {
 
 var remainingClicks = document.getElementById('remainingClicks');
 
-var showUntil25 = function (event) {
+var showUntil25ThenGraphAndImages = function (event) {
   if (clicks < 24) {
     if (event.target.id === 'product1') {
       var index = lastImageArray[0];
@@ -101,7 +101,7 @@ var productImg = document.getElementsByClassName('productImg');
 
 button.addEventListener('click',startButton);
 for (var i = 0; i < productImg.length; i++) {
-  productImg[i].addEventListener('click',showUntil25);
+  productImg[i].addEventListener('click',showUntil25ThenGraphAndImages);
 }
 
 var canvas = document.getElementById('canvas');
