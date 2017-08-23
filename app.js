@@ -120,8 +120,8 @@ var chartData = function () {
 };
 
 var sendToLocal = function () {
-  localStorage.clickData = JSON.stringify(clickedDataArray);
-  localStorage.shownData = JSON.stringify(shownDataArray);
+  localStorage.clickData = JSON.stringify(clickTotalArray);
+  localStorage.shownData = JSON.stringify(shownTotalArray);
 };
 
 var localClickData = [];
@@ -136,8 +136,21 @@ var getFromLocal = function () {
   }
 };
 
+var clickTotalArray = [];
+var shownTotalArray = [];
+
 var addLocal = function () {
-  if (){}
+  if (localStorage.clickData && localStorage.shownData) {
+    chartData();
+    for (var i = 0; i < clickTotalArray.length; i++) {
+      clickTotalArray.push(clickedDataArray[i] + localClickData[i]);
+      shownTotalArray.push(shownDataArray[i] + localShownData[i]);
+    }
+  } else {
+    chartData();
+    clickTotalArray = clickedDataArray;
+    shownTotalArray = shownDataArray;
+  }
 };
 
 var chartConfig = {
