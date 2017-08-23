@@ -119,6 +119,27 @@ var chartData = function () {
   }
 };
 
+var sendToLocal = function () {
+  localStorage.clickData = JSON.stringify(clickedDataArray);
+  localStorage.shownData = JSON.stringify(shownDataArray);
+};
+
+var localClickData = [];
+var localShownData = [];
+
+var getFromLocal = function () {
+  if (localStorage.clickData) {
+    localClickData = JSON.parse(clickData);
+  }
+  if (localStorage.shownData) {
+    localShownData = JSON.parse(shownData);
+  }
+};
+
+var addLocal = function () {
+  if (){}
+};
+
 var chartConfig = {
   type: 'horizontalBar',
   data: {
