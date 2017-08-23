@@ -15,6 +15,7 @@
 }
 #chartDiv {
   text-align: center;
+  width: 1000px;
   margin: auto;
 }
 img:hover {
@@ -22,4 +23,17 @@ img:hover {
 }
 img:active {
   border: 5px solid teal;
+}
+#imgList {
+  margin: auto;
+}
+#imgList, figure {
+  display: inline-block;
+  text-align: center;
+}
+#imgList img:hover {
+  border: none;
+}
+#imgList img:active {
+  border: none;
 }

@@ -224,6 +224,7 @@ var chartConfig = {
   },
   options: {
     maintainAspectRatio: true,
+    responsive: false,
     animation: {
       duration: 1000
     },
