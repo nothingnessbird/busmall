@@ -55,9 +55,23 @@ var startButton = function () {
   productShower();
 };
 
+var imageLister = function () {
+  var imgList = document.getElementById('imgList');
+  for (var i = 0; i < productFiles.length; i++) {
+    var figure = document.createElement('figure');
+    imgList.appendChild(figure);
+    var figImg = document.createElement('img');
+    figImg.setAttribute('src','img/' + productArray[i].fileLink);
+    figure.appendChild(figImg);
+    var figCaption = document.createElement('figcaption');
+    figCaption.innerHTML = productArray[i].name;
+    figure.appendChild(figCaption);
+  }
+};
+
 var remainingClicks = document.getElementById('remainingClicks');
 
-var incrementProductsShowImgs = function (event) {
+var showUntil25ThenGraphAndImages = function (event) {
   if (clicks < 24) {
     if (event.target.id === 'product1') {
       var index = lastImageArray[0];
@@ -78,6 +92,7 @@ var incrementProductsShowImgs = function (event) {
     products.style.display = 'none';
     chartData();
     var myChart = new Chart(ctx, chartConfig);
+    imageLister();
   }
 };
 
@@ -86,7 +101,7 @@ var productImg = document.getElementsByClassName('productImg');
 
 button.addEventListener('click',startButton);
 for (var i = 0; i < productImg.length; i++) {
-  productImg[i].addEventListener('click',incrementProductsShowImgs);
+  productImg[i].addEventListener('click',showUntil25ThenGraphAndImages);
 }
 
 var canvas = document.getElementById('canvas');
@@ -209,6 +224,7 @@ var chartConfig = {
   },
   options: {
     maintainAspectRatio: true,
+    responsive: false,
     animation: {
       duration: 1000
     },
