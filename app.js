@@ -230,7 +230,7 @@ var chartConfig = {
     },
     title: {
       display: true,
-      text: 'Your Favorite Products'
+      text: 'Product Graph'
     },
     scales: {
       yAxes: [{
