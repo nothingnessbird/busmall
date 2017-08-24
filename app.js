@@ -91,10 +91,10 @@ var showUntil25ThenGraphAndImages = function (event) {
   } else {
     products.style.display = 'none';
     addLocal();
-    var myChart = new Chart(ctx, chartConfig);
     imageLister();
     percentCalc();
-    var myBubbleChart = new Chart(ctx2, percentChartConfig);
+    var myChart = new Chart(ctx, chartConfig);
+    var mySecondChart = new Chart(ctx2, percentChartConfig);
   }
 };
 
@@ -287,7 +287,7 @@ var percentsShown = [];
 
 function percentCalc () {
   for (var i = 0; i < shownTotalArray.length; i++) {
-    percentsShown.push(parseInt(shownTotalArray[i]) / parseInt(clickTotalArray[i]) * 10);
+    percentsShown.push(parseInt(clickTotalArray[i]) / parseInt(shownTotalArray[i]) * 10);
   }
 };
 
@@ -353,7 +353,7 @@ var percentChartConfig = {
     },
     title: {
       display: true,
-      text: 'Product Graph'
+      text: 'Percent Graph'
     },
     scales: {
       yAxes: [{
