@@ -93,6 +93,8 @@ var showUntil25ThenGraphAndImages = function (event) {
     addLocal();
     var myChart = new Chart(ctx, chartConfig);
     imageLister();
+    percentCalc();
+    var myBubbleChart = new Chart(ctx2, percentChartConfig);
   }
 };
 
@@ -106,6 +108,8 @@ for (var i = 0; i < productImg.length; i++) {
 
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
+var canvas2 = document.getElementById('canvas2');
+var ctx2 = canvas2.getContext('2d');
 
 var clickedDataArray = [];
 var shownDataArray = [];
@@ -273,6 +277,91 @@ var chartConfig = {
       yAxes: [{
         ticks: {
           beginAtZero:true
+        }
+      }]
+    }
+  }
+};
+
+var percentsShown = [];
+
+function percentCalc () {
+  for (var i = 0; i < shownTotalArray.length; i++) {
+    percentsShown.push(parseInt(shownTotalArray[i]) / parseInt(clickTotalArray[i]) * 10);
+  }
+};
+
+var percentChartConfig = {
+  type: 'bar',
+  data: {
+    labels: nameArray,
+    datasets: [{
+      label: 'Percent of Times Voted For When Shown',
+      data: percentsShown,
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.4)',
+        'rgba(54, 162, 235, 0.4)',
+        'rgba(255, 206, 86, 0.4)',
+        'rgba(75, 192, 192, 0.4)',
+        'rgba(153, 102, 255, 0.4)',
+        'rgba(20, 109, 164, 0.4)',
+        'rgba(55, 59, 254, 0.4)',
+        'rgba(205, 180, 94, 0.4)',
+        'rgba(150, 255, 64, 0.4)',
+        'rgba(205, 109, 204, 0.4)',
+        'rgba(30, 200, 164, 0.4)',
+        'rgba(228, 15, 294, 0.4)',
+        'rgba(255, 30, 64, 0.4)',
+        'rgba(255, 200, 24, 0.4)',
+        'rgba(130, 250, 114, 0.4)',
+        'rgba(90, 255, 150, 0.4)',
+        'rgba(100, 25, 255, 0.4)',
+        'rgba(160, 160, 204, 0.4)',
+        'rgba(25, 197, 104, 0.4)',
+        'rgba(240, 100, 75, 0.4)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(20, 109, 164, 1)',
+        'rgba(55, 59, 254, 1)',
+        'rgba(205, 180, 94, 1)',
+        'rgba(150, 255, 64, 1)',
+        'rgba(205, 109, 204, 1)',
+        'rgba(30, 200, 164, 1)',
+        'rgba(228, 15, 294, 1)',
+        'rgba(255, 30, 64, 1)',
+        'rgba(255, 200, 24, 1)',
+        'rgba(130, 250, 114, 1)',
+        'rgba(90, 255, 150, 1)',
+        'rgba(100, 25, 255, 1)',
+        'rgba(160, 160, 204, 1)',
+        'rgba(25, 197, 104, 1)',
+        'rgba(240, 100, 75, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    maintainAspectRatio: true,
+    responsive: false,
+    animation: {
+      duration: 1000
+    },
+    title: {
+      display: true,
+      text: 'Product Graph'
+    },
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero:true,
+          callback: function(value,index,values) {
+            return value + '%';
+          }
         }
       }]
     }
