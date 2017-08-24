@@ -90,7 +90,7 @@ var showUntil25ThenGraphAndImages = function (event) {
     productShower();
   } else {
     products.style.display = 'none';
-    chartData();
+    addLocal();
     var myChart = new Chart(ctx, chartConfig);
     imageLister();
   }
@@ -119,13 +119,50 @@ var chartData = function () {
   }
 };
 
+var sendToLocal = function () {
+  localStorage.clickData = JSON.stringify(clickTotalArray);
+  localStorage.shownData = JSON.stringify(shownTotalArray);
+};
+
+var localClickData = [];
+var localShownData = [];
+
+var getFromLocal = function () {
+  if (localStorage.clickData) {
+    localClickData = JSON.parse(localStorage.clickData);
+  }
+  if (localStorage.shownData) {
+    localShownData = JSON.parse(localStorage.shownData);
+  }
+};
+getFromLocal();
+
+var clickTotalArray = [];
+var shownTotalArray = [];
+
+var addLocal = function () {
+  if (localStorage.clickData && localStorage.shownData) {
+    chartData();
+    for (var i = 0; i < clickedDataArray.length; i++) {
+      clickTotalArray.push(parseInt(clickedDataArray[i]) + parseInt(localClickData[i]));
+      shownTotalArray.push(parseInt(shownDataArray[i]) + parseInt(localShownData[i]));
+    }
+    sendToLocal();
+  } else {
+    chartData();
+    clickTotalArray = clickedDataArray;
+    shownTotalArray = shownDataArray;
+    sendToLocal();
+  }
+};
+
 var chartConfig = {
   type: 'horizontalBar',
   data: {
     labels: nameArray,
     datasets: [{
       label: '# of Votes',
-      data: clickedDataArray,
+      data: clickTotalArray,
       backgroundColor: [
         'rgba(255, 99, 132, 0.4)',
         'rgba(54, 162, 235, 0.4)',
@@ -174,7 +211,7 @@ var chartConfig = {
     },
     {
       label: '# of Times Shown',
-      data: shownDataArray,
+      data: shownTotalArray,
       backgroundColor: [
         'rgba(255, 99, 132, 0.1)',
         'rgba(54, 162, 235, 0.1)',
@@ -230,7 +267,7 @@ var chartConfig = {
     },
     title: {
       display: true,
-      text: 'Your Favorite Products'
+      text: 'Product Graph'
     },
     scales: {
       yAxes: [{
