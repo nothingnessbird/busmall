@@ -122,8 +122,6 @@ var chartData = function () {
 var sendToLocal = function () {
   localStorage.clickData = JSON.stringify(clickTotalArray);
   localStorage.shownData = JSON.stringify(shownTotalArray);
-  console.log(clickTotalArray);
-  console.log(shownTotalArray);
 };
 
 var localClickData = [];
@@ -131,13 +129,13 @@ var localShownData = [];
 
 var getFromLocal = function () {
   if (localStorage.clickData) {
-    localClickData = JSON.parse(clickData);
+    localClickData = JSON.parse(localStorage.clickData);
   }
   if (localStorage.shownData) {
-    localShownData = JSON.parse(shownData);
+    localShownData = JSON.parse(localStorage.shownData);
   }
 };
-// getFromLocal();
+getFromLocal();
 
 var clickTotalArray = [];
 var shownTotalArray = [];
@@ -146,8 +144,8 @@ var addLocal = function () {
   if (localStorage.clickData && localStorage.shownData) {
     chartData();
     for (var i = 0; i < clickedDataArray.length; i++) {
-      clickTotalArray.push(clickedDataArray[i] + localClickData[i]);
-      shownTotalArray.push(shownDataArray[i] + localShownData[i]);
+      clickTotalArray.push(parseInt(clickedDataArray[i]) + parseInt(localClickData[i]));
+      shownTotalArray.push(parseInt(shownDataArray[i]) + parseInt(localShownData[i]));
     }
     sendToLocal();
   } else {
