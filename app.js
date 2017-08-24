@@ -287,7 +287,7 @@ var percentsShown = [];
 
 function percentCalc () {
   for (var i = 0; i < shownTotalArray.length; i++) {
-    percentsShown.push(parseInt(clickTotalArray[i]) / parseInt(shownTotalArray[i]) * 10);
+    percentsShown.push(parseInt(clickTotalArray[i]) / parseInt(shownTotalArray[i]) * 100);
   }
 };
 
