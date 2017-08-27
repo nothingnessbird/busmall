@@ -1,9 +1,10 @@
 'use strict';
 
-var productFiles = ['bag.jpg','banana.jpg','bathroom.jpg','boots.jpg','breakfast.jpg','bubblegum.jpg','chair.jpg','cthulhu.jpg','dog-duck.jpg','dragon.jpg','pen.jpg','pet-sweep.jpg','scissors.jpg','shark.jpg','sweep.png','tauntaun.jpg','unicorn.jpg','usb.gif','water-can.jpg','wine-glass.jpg'];
+var productFiles = [['bag.jpg', 'R2D2 Luggage Bag'],['banana.jpg','Banana Slicer'] ,['bathroom.jpg','While Pooping Tablet'],['boots.jpg','Toeless Rain Boots'],['breakfast.jpg','Combo Breakfast Machine'],['bubblegum.jpg','Meatball Bubblegum'],['chair.jpg','Bubble Bottom Chair'],['cthulhu.jpg','ph\'nglui mglw\'nafh Cthulhu R\'lyeh wgah\'nagl fhtagn'],['dog-duck.jpg','Duck Beak Dog Muzzle'],['dragon.jpg','Dragon Meat'],['pen.jpg','Filthy Pen Utensils'],['pet-sweep.jpg','Animal Abuse'],['scissors.jpg','Pizza Scissors'],['shark.jpg','Shark Attack Sleeping Bag'],['sweep.png','Child Abuse'],['tauntaun.jpg','Stolen ThinkGeek Taun Taun Sleeping Bag'],['unicorn.jpg','Unicorn Meat'],['usb.gif','Wiggly USB Tentacle'],['water-can.jpg','Self Watering Can'],['wine-glass.jpg','Spill On Yourself Wine Glass']];
 
-function Product(name,fileLink) {
+function Product(name,description,fileLink) {
   this.name = name;
+  this.description = description;
   this.fileLink = fileLink;
   this.shownCounter = 0;
   this.clickCounter = 0;
@@ -13,9 +14,10 @@ var productArray = [];
 
 var productMaker = function () {
   for (var i = 0; i < productFiles.length; i++) {
-    var fileNamer = productFiles[i].slice(0,-4);
-    var fileLinker = productFiles[i];
-    productArray.push(new Product(fileNamer,fileLinker));
+    var fileNamer = productFiles[i][0].slice(0,-4);
+    var fileDescriptor = productFiles[i][1];
+    var fileLinker = productFiles[i][0];
+    productArray.push(new Product(fileNamer,fileDescriptor,fileLinker));
   }
 };
 
@@ -64,7 +66,7 @@ var imageLister = function () {
     figImg.setAttribute('src','img/' + productArray[i].fileLink);
     figure.appendChild(figImg);
     var figCaption = document.createElement('figcaption');
-    figCaption.innerHTML = productArray[i].name;
+    figCaption.innerHTML = productArray[i].description;
     figure.appendChild(figCaption);
   }
 };
@@ -120,7 +122,7 @@ var chartData = function () {
   for (var i = 0; i < productArray.length; i++) {
     clickedDataArray.push(productArray[i].clickCounter);
     shownDataArray.push(productArray[i].shownCounter);
-    nameArray.push(productArray[i].name);
+    nameArray.push(productArray[i].description);
   }
 };
 
