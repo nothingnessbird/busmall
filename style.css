@@ -13,7 +13,7 @@
   text-align: center;
   margin: auto;
 }
-#chartDiv {
+.charts {
   text-align: center;
   width: 1000px;
   margin: auto;
@@ -36,4 +36,20 @@ img:active {
 }
 #imgList img:active {
   border: none;
+}
+header {
+  width: 90%;
+  height: 10%;
+  margin: auto;
+  background-image: url('img/bus.jpg');
+  background-size: cover;
+}
+h1 {
+  color: white;
+  background-color: rgba(112, 94, 94, 0.7);
+  font-size: 5em;
+  font-style: normal;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: center;
 }

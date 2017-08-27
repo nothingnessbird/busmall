@@ -7,7 +7,11 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
   </head>
   <body>
+    <header>
+      <h1>BUSMALL</h1>
+    </header>
     <div id="buttonDiv">
+      <h2>WELCOME TO THE BUSMALL FOCUS GROUP</h2>
       <h2>Directions:</h2>
       <p>You will be shown sets of three products. Click on whichever product you like best, or would be most likely to buy, to vote for that product. When you have voted for a product, three new products will appear. When you have voted for 25 products, you will be shown a graph displaying how many times you were shown each product, and how many times you voted for each one.</p>
       <p id="start-text">When you are ready to begin, click the button!</p>
@@ -20,10 +24,10 @@
       <img class="productImg" id="product3" />
       <h3 id="remainingClicks"></h3>
     </div>
-    <div id="chartDiv">
+    <div class="charts" id="chartDiv">
       <canvas id="canvas" width="1000" height="600"></canvas>
     </div>
-    <div id="secondChartDiv">
+    <div class="charts" id="secondChartDiv">
       <canvas id="canvas2" width="1000" height="600"></canvas>
     </div>
     <div id="imgList"></div>

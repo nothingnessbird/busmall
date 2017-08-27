@@ -4,7 +4,7 @@
 I want to be able to click on an image to select it.
 I want when I have completed clicking on as many are required, to see a list of the items I clicked on.
 I want the list of information to include how many times I clicked on each, and which I clicked on the most.
-I want to have easy to read instructions for how to use the application.
+I want to have easy to read instructions for how to use the application.  
 
 ## As the Marketing Research Team
 I want information on which images were clicked on and how many times.
